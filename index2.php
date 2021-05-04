@@ -15,12 +15,11 @@
     $lungname = strlen($name);
     $mail = $_GET['mail'];
     $age = $_GET['age'];
-    $mailok = false;
+    $mailok = strpos($mail, '.') && strpos($mail, '@');
     $ageok = is_numeric($age);
 
-    if ($lungname > 3 && strpos($mail, '.') == true && strpos($mail, '@') == true && $ageok == true) {
+    if (($lungname > 3) && $mailok && $ageok) {
 
-        $mailok = true;
 
         echo 'accesso riuscito';
     } else{
